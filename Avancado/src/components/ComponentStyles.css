@@ -1,0 +1,102 @@
+.app-root {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(243,242,250,0.96) 100%);
+}
+
+.component-grid {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.component-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(102, 102, 153, 0.14);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 18px 40px rgba(69, 73, 120, 0.08);
+  min-height: 220px;
+}
+
+.component-card h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.component-card p,
+.component-card li,
+.component-card span,
+.component-card h3,
+.component-card h4 {
+  color: black;
+  line-height: 1.6;
+}
+
+.button-row,
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.component-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: black;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.component-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.component-btn.secondary {
+  background: rgba(170, 59, 255, 0.14);
+  color: var(--accent);
+}
+
+.exercise-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(170, 59, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.list-reset li {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(238, 235, 255, 0.8);
+}
+
+@media (max-width: 740px) {
+  .app-root {
+    padding: 24px 16px;
+  }
+}
