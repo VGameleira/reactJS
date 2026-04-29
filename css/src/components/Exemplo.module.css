@@ -1,0 +1,12 @@
+/* Este arquivo é um CSS Module. */
+/* Cada classe vira um nome único no build, evitando vazamento para outros componentes. */
+.titulo { 
+    color: pink; 
+    transition: all 0.3s ease;
+}
+
+.active {
+    font-size: 2em;
+    text-decoration: underline;
+    background-color: yellow;
+}
