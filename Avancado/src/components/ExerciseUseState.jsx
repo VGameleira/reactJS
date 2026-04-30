@@ -16,6 +16,10 @@ const ExerciseUseState = () => {
         <button className="component-btn secondary" onClick={() => setCount(0)}>
           Resetar
         </button>
+        <button className="component-btn" onClick={() => setCount(prev => prev - 1)}>
+          Decrementar
+        </button>
+        
       </div>
     </div>
   );

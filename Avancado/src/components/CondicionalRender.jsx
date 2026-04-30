@@ -1,28 +1,37 @@
 import { useState } from 'react';
 
 const CondicionalRender = () => {
-const [x] = useState(false);
-const [name, setName] = useState("Marcos");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState('Visitante');
 
-  return (   
+  return (
     <div>
-        <h2>Renderizando Condicionalmente: CondicionalRender</h2>
+      <div className="component-card">
+        <span className="exercise-badge">Renderização Condicional</span>
 
-        <h3>Isso será exibido?</h3>
-        
+        <h3>Exercício de CondicionalRender</h3>
+
         {/* Condicional simples */}
-        <h3>Condicional Simples:</h3>
-        {x && <p>Se x for true, Sim!</p>}
-        {!x && <p>Se x for false, Sim!</p>}
+        <h3>Status de login:</h3>
+        {isLoggedIn && <p>Bem-vindo de volta! Você está logado.</p>}
+        {!isLoggedIn && <p>Você não está logado. Por favor, faça login.</p>}
 
-        {/* Operadores Ternários */}
-        <h3>Operador Ternário:</h3>
-        {x ? <p>Se x for true, Sim!</p> : <p>Se x for false, Sim!</p>}
+        {/* Operador ternário */}
+        <h3>Tipo de usuário:</h3>
+        {userType === 'Administrador'
+          ? <p>Olá, administrador! Você tem acesso total.</p>
+          : <p>Olá, {userType}! Você tem acesso limitado.</p>
+        }
 
-        {name === "Marcos" ? (<p>Olá, Marcos!</p>) : (<p>Olá, João!</p>)}
-        <button onClick={() => setName("x")}>Mudar nome</button>
+        <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          {isLoggedIn ? 'Deslogar' : 'Logar'}
+        </button>
+        <button onClick={() => setUserType(prev => prev === 'Visitante' ? 'Administrador' : 'Visitante')}>
+          Alternar tipo de usuário
+        </button>
+      </div>
     </div>
-)
-}
+  );
+};
 
-export default CondicionalRender
+export default CondicionalRender;

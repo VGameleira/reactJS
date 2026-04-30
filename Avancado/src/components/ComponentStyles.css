@@ -65,7 +65,7 @@
 
 .component-btn.secondary {
   background: rgba(170, 59, 255, 0.14);
-  color: var(--accent);
+  color: black;
 }
 
 .exercise-badge {
@@ -75,7 +75,7 @@
   padding: 6px 12px;
   border-radius: 999px;
   background: rgba(170, 59, 255, 0.12);
-  color: var(--accent);
+  color: black;
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 12px;

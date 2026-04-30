@@ -9,7 +9,10 @@ const [number, setNumber] = useState(someData);
     <>
 
         {/* Quando mudamos o valor da variável não atualiza o valor */}
-        <div>
+     
+          <div className="component-card">
+            <span className="exercise-badge">Gerenciando Dados: Variável vs State</span>
+            <h2>Gerenciando Dados: Variável vs State</h2>
             <p>Valor {someData}</p>
             <button onClick={() => (someData = 15)}>Mudando a Variável para 15: Não atualiza</button>
             <p>Valor: {someData}</p>
@@ -19,12 +22,14 @@ const [number, setNumber] = useState(someData);
             <br></br>
         </div>
 
+
         {/* Quando mudamos o state o valor é atualizado na tela */}
         <div>
             <p>Valor {number}</p>
             <button onClick={() => setNumber(25)}>Mudando o State para 25: Tela atualiza</button>
             <p>Valor: {number}</p>
         </div>
+    
     </>
   )
 }

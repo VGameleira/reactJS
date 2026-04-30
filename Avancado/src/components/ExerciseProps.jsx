@@ -5,6 +5,7 @@ const ExerciseProps = ({ title, author }) => {
       <h2>{title}</h2>
       <p>Autor: <strong>{author}</strong></p>
       <p>Esta component recebe informações pelo props e exibe um texto personalizado.</p>
+      
     </div>
   );
 };
