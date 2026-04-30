@@ -1,0 +1,87 @@
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.timer-container h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.timer-display {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px 60px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  text-align: center;
+  border: 3px solid white;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn.play {
+  background-color: #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn.play:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.btn.pause {
+  background-color: #ff9800;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+.btn.pause:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.btn.reset {
+  background-color: #f44336;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+}
+
+.btn.reset:hover {
+  background-color: #da190b;
+  transform: scale(1.05);
+}
+
+.info {
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  opacity: 0.9;
+}
