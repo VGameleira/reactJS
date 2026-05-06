@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="heroTitle">
+  <title>Lumen Studio hero illustration</title>
+  <defs>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5f7cfa"/>
+      <stop offset="100%" stop-color="#4dd9e3"/>
+    </linearGradient>
+    <linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe5d1"/>
+      <stop offset="100%" stop-color="#ff9680"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="520" rx="60" fill="#161b31" />
+  <circle cx="520" cy="120" r="110" fill="url(#heroGlow)" opacity="0.24" />
+  <circle cx="190" cy="410" r="112" fill="#4d5df5" opacity="0.15" />
+  <path d="M118 357c58-88 184-150 292-128 108 22 182 116 155 212-27 96-138 143-246 121-108-22-191-107-201-205Z" fill="url(#heroGrad)" opacity="0.84"/>
+  <g transform="translate(104 84)">
+    <rect x="0" y="0" width="512" height="272" rx="40" fill="#0f1424" opacity="0.96"/>
+    <rect x="32" y="30" width="160" height="28" rx="14" fill="#273060"/>
+    <rect x="32" y="78" width="448" height="148" rx="24" fill="#19214a"/>
+    <circle cx="120" cy="152" r="38" fill="#3348b5"/>
+    <rect x="182" y="108" width="220" height="22" rx="12" fill="#3348b5"/>
+    <rect x="182" y="152" width="220" height="16" rx="8" fill="#273060"/>
+    <rect x="182" y="186" width="180" height="16" rx="8" fill="#273060"/>
+    <rect x="32" y="240" width="448" height="16" rx="8" fill="#273060"/>
+    <circle cx="92" cy="210" r="10" fill="#4dd9e3"/>
+    <circle cx="132" cy="210" r="10" fill="#5f7cfa"/>
+    <circle cx="172" cy="210" r="10" fill="#ff9680"/>
+  </g>
+</svg>
