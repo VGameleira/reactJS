@@ -1,7 +1,7 @@
 // ============================================================
 // ServiceCard.jsx - Card de serviço
 // ============================================================
-// Um componente "burro" (dumb component): só exibe dados,
+// Um componente (dumb component): só exibe dados,
 // não tem estado nem lógica. Recebe tudo via props.
 // ============================================================
 
