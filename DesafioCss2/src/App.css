@@ -1,0 +1,969 @@
+/* ============================================================
+   App.css - Estilos globais da Lumen Studio
+   ============================================================
+   Usamos variáveis CSS (--nome) para centralizar as cores e
+   tamanhos. Assim, trocar o tema escuro/claro é só mudar
+   as variáveis em [data-theme='dark'] - o resto se atualiza sozinho!
+   ============================================================ */
+
+/* - Variáveis do tema claro (padrão) - */
+:root {
+  /* Cores de fundo */
+  --bg: #eff3ff;
+  --surface: #ffffff;
+  --surface-soft: #f3f6ff;
+  --surface-strong: #eef1ff;
+
+  /* Cores de texto */
+  --text: #14213d;
+  --muted: #5f6d91;       /* texto secundário, mais apagado */
+
+  /* Bordas e sombras */
+  --border: #d8dbe8;
+  --shadow: 0 8px 40px rgba(20, 33, 61, 0.09);
+  --shadow-strong: 0 28px 80px rgba(20, 33, 61, 0.13);
+
+  /* Cor de destaque (accent) */
+  --accent: #5f7cfa;
+  --accent-dark: #3f56d2;
+  --accent-soft: rgba(95, 124, 250, 0.13);
+
+  /* Cor de sucesso */
+  --success: #1bc47d;
+
+  /* Bordas arredondadas */
+  --radius: 28px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Fontes */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Poppins', system-ui, sans-serif;
+}
+
+/* - Variáveis do tema escuro -
+   Só sobrescreve as variáveis que mudam.
+   O CSS do resto da página usa as variáveis,
+   então tudo muda automaticamente! */
+[data-theme='dark'] {
+  --bg: #0e1325;
+  --surface: #151c39;
+  --surface-soft: #19254e;
+  --surface-strong: #1d2858;
+  --text: #eef2ff;
+  --muted: #9ba3c8;
+  --border: #2c3560;
+  --accent: #7a90ff;
+  --accent-dark: #5f7cfa;
+  --accent-soft: rgba(95, 124, 250, 0.16);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  --shadow-strong: 0 28px 80px rgba(0, 0, 0, 0.34);
+}
+
+/* ============================================================
+   RESET E BASE
+   ============================================================ */
+
+/* box-sizing: border-box faz com que padding e border não
+   aumentem o tamanho do elemento - facilita muito o layout! */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* scroll-behavior: smooth faz a página rolar suavemente
+     ao clicar em links âncora como href="#services" */
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  /* Gradiente sutil no fundo para dar profundidade */
+  background:
+    radial-gradient(circle at top left, rgba(95, 124, 250, 0.13), transparent 35%),
+    var(--bg);
+  /* transition faz o fundo animar ao trocar de tema */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;    /* remove o espaço fantasma abaixo de imagens inline */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;  /* botões herdam a fonte do body por padrão */
+}
+
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   ============================================================ */
+
+.app-shell {
+  max-width: 1320px;
+  margin: 0 auto;         /* centraliza horizontalmente */
+  padding: 0 24px 80px;  /* espaço nas laterais e embaixo */
+}
+
+
+/* ============================================================
+   HEADER - Barra de navegação fixa no topo
+   ============================================================ */
+
+.site-header {
+  /* sticky: o header gruda no topo da tela ao rolar a página */
+  position: sticky;
+  top: 0;
+  z-index: 100; /* fica acima de todo o conteúdo */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  /* Espaçamento interno */
+  padding: 14px 0;
+
+  /* Fundo semi-transparente com desfoque (efeito "vidro") */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Safari */
+
+  /* Linha separadora embaixo */
+  border-bottom: 1px solid var(--border);
+
+  /* Sombra suave */
+  box-shadow: var(--shadow);
+
+  /* Transição suave ao trocar de tema */
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Fundo do header no tema escuro */
+[data-theme='dark'] .site-header {
+  background: rgba(14, 19, 37, 0.9);
+}
+
+/* - Bloco do logo e nome da marca - */
+.brand-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;  /* sem gap - só o brand-link importa aqui */
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  padding: 6px;
+  flex-shrink: 0; /* não encolhe em telas pequenas */
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-tag {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+/* - Menu de navegação - */
+.site-nav {
+  flex: 1;  /* ocupa o espaço disponível entre logo e botões */
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  /* padding cria área clicável maior (melhora usabilidade) */
+  padding: 4px 0;
+  position: relative;
+}
+
+/* Efeito de sublinhado animado ao hover */
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.site-nav a:hover {
+  color: var(--accent-dark);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* - Barra de ações (direita do header) - */
+.actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+
+/* Base compartilhada por todos os botões */
+.button, .icon-button {
+  border: none;
+  border-radius: 999px;  /* bordas totalmente arredondadas (pílula) */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Botão com ícone (quadrado) */
+.icon-button {
+  background: var(--surface);
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+.icon-button:hover {
+  background: var(--surface-strong);
+}
+
+/* Botão normal (retangular) */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* Botão primário: azul sólido */
+.button-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 8px 24px rgba(95, 124, 250, 0.3);
+}
+
+.button-primary:hover {
+  box-shadow: 0 12px 32px rgba(95, 124, 250, 0.4);
+}
+
+/* Botão secundário: borda e fundo claro */
+.button-secondary {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* Botão que ocupa toda a largura do container */
+.button-full {
+  width: 100%;
+  border-radius: var(--radius-xs);
+}
+
+/* Badge do carrinho (contador) */
+.cart-badge {
+  display: inline-flex;
+  min-width: 24px;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  border-radius: 999px;
+  padding: 0 7px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Botão carrinho específico */
+.cart-button {
+  padding: 0 16px;
+}
+
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+
+.section {
+  padding: 64px 0;
+}
+
+.section-header {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+/* Texto pequeno acima dos títulos (ex: "✦ Serviços") */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+/* Títulos das seções */
+.section-header h2,
+.highlight-panel h2,
+.hero-copy h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 10px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  /* clamp(min, ideal, max) - fonte responsiva sem media queries */
+}
+
+
+/* ============================================================
+   HERO (seção de apresentação)
+   ============================================================ */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 56px 0 32px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.hero-copy p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Botões hero um pouco maiores */
+.hero-actions .button {
+  height: 52px;
+  padding: 0 28px;
+  font-size: 1rem;
+}
+
+.hero-visual img {
+  width: 100%;
+  border-radius: 36px;
+  box-shadow: var(--shadow-strong);
+}
+
+
+/* ============================================================
+   CARDS DE SERVIÇO
+   ============================================================ */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 28px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.service-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.service-body p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   CARDS DE PRODUTO
+   ============================================================ */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.product-visual {
+  display: grid;
+  place-items: center;   /* centraliza o filho horizontal e verticalmente */
+  min-height: 200px;
+  background: var(--surface-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.product-visual img {
+  max-height: 170px;
+  width: 100%;
+  object-fit: contain;  /* mantém proporção da imagem sem cortar */
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;  /* ocupa o espaço restante (empurra o preço para baixo) */
+}
+
+.product-category {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.product-content p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  /* Limita a 3 linhas com reticências */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;  /* empurra para o fundo do card */
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   CAIXA DE STATUS (loading / erro)
+   ============================================================ */
+
+.status-box {
+  padding: 28px 32px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.status-box p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.status-box small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.error-box {
+  border-color: rgba(255, 80, 80, 0.3);
+  background: rgba(255, 80, 80, 0.06);
+}
+
+/* Spinner de carregamento (animação CSS pura) */
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* Animação infinita de rotação */
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ============================================================
+   PAINEL DE DESTAQUE (seção de contato)
+   ============================================================ */
+
+.highlight-panel {
+  display: grid;
+  gap: 20px;
+  padding: 48px;
+  border-radius: 36px;
+  /* Gradiente usando as cores de destaque */
+  background: linear-gradient(
+    135deg,
+    rgba(95, 124, 250, 0.15),
+    rgba(77, 217, 227, 0.1)
+  );
+  border: 1px solid rgba(95, 124, 250, 0.15);
+}
+
+.highlight-panel h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+}
+
+.highlight-panel p {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.highlight-panel .button {
+  align-self: flex-start;  /* não estica o botão */
+  height: 52px;
+  padding: 0 28px;
+}
+
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+
+.site-footer {
+  padding: 56px 0 16px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-grid p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-links a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent-dark);
+}
+
+.footer-note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   CARRINHO (drawer lateral)
+   ============================================================ */
+
+.cart-drawer {
+  /* fixed: posiciona relativo à janela do navegador */
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: min(400px, calc(100vw - 32px));
+  /* min() escolhe o menor valor - garante que não ultrapasse a tela */
+
+  max-height: min(600px, calc(100vh - 48px));
+  overflow-y: auto;  /* scroll se o conteúdo for muito longo */
+
+  background: var(--surface);
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-strong);
+
+  /* Estado inicial: invisível e deslocado para baixo */
+  transform: translateY(20px) scale(0.97);
+  opacity: 0;
+  visibility: hidden;  /* remove do tab order quando fechado */
+
+  /* Animação de entrada/saída */
+  transition: transform 0.3s ease, opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Quando a classe "open" é adicionada, o drawer aparece */
+.cart-drawer.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  /* sticky dentro do drawer para o header não rolar */
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 1;
+}
+
+.cart-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.cart-empty p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cart-items {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--surface-soft);
+}
+
+.cart-item-info p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  /* Corta texto longo com reticências */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.cart-item-info span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cart-remove {
+  width: 34px;
+  height: 34px;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cart-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0 8px;
+  font-size: 0.95rem;
+}
+
+.cart-summary strong {
+  font-size: 1.1rem;
+}
+
+
+/* ============================================================
+   ANIMAÇÃO DE ENTRADA (fade-up)
+   ============================================================ */
+
+/* Os elementos com classe fade-up começam invisíveis e deslocados.
+   A variável --delay permite escalonar a entrada de cada elemento. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  /* animation: nome duração easing modo-de-preenchimento */
+  animation: fadeUp 0.7s ease forwards;
+  /* animation-delay usa a variável CSS --delay definida no JSX:
+     style={{ '--delay': '0.08s' }} */
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE - Media Queries
+   ============================================================
+   As media queries ajustam o layout para telas menores.
+   @media (max-width: Xpx) = "se a tela tiver até X pixels" */
+
+/* - Tablet / Landscape mobile (até 1024px) - */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* - Mobile grande (até 900px) - */
+@media (max-width: 900px) {
+  /* Hero vira coluna única */
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* Imagem do hero sobe (fica antes do texto com order) */
+  .hero-visual {
+    order: -1;
+  }
+
+  /* Grid de serviços vira 1 coluna */
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Grid do rodapé vira 1 coluna */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* - Header mobile - */
+  .site-header {
+    flex-wrap: wrap;    /* permite quebrar em múltiplas linhas */
+    gap: 0;
+    padding: 14px 0;
+  }
+
+  /* Nav ocupa a linha inteira e fica por último */
+  .site-nav {
+    order: 3;
+    width: 100%;
+
+    /* Escondido por padrão no mobile */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  /* Quando o menu está aberto (classe "open"), expande */
+  .site-nav.open {
+    max-height: 400px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 14px;
+  }
+
+  .site-nav li a {
+    display: block;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Botões de ação vão para a direita */
+  .actions-bar {
+    margin-left: auto;
+  }
+
+  .highlight-panel {
+    padding: 32px;
+  }
+}
+
+/* - Mobile pequeno (até 700px) - */
+@media (max-width: 700px) {
+  .app-shell {
+    padding: 0 16px 48px;
+  }
+
+  /* Produtos em coluna única */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Carrinho ocupa quase a tela inteira */
+  .cart-drawer {
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    width: auto;
+  }
+
+  .highlight-panel {
+    padding: 24px;
+  }
+}
+
+/* - Ocultar botão de menu no desktop - */
+@media (min-width: 901px) {
+  .menu-trigger {
+    display: none;
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>Lumen Studio logo</title>
+  <defs>
+    <linearGradient id="a" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#5f7cfa"/>
+      <stop offset="100%" stop-color="#4dd9e3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="50" fill="url(#a)"/>
+  <path fill="#fff" d="M37 60a23 23 0 0 1 46 0 23 23 0 0 1-46 0Zm23-14a14 14 0 0 0-14 14 14 14 0 0 0 28 0 14 14 0 0 0-14-14Z"/>
+</svg>
