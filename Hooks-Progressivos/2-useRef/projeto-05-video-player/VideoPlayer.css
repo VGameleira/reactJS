@@ -1,0 +1,153 @@
+.video-player-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.video-player-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.video-element {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .controls {
+  opacity: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  accent-color: #ff6b6b;
+  border-radius: 3px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  cursor: pointer;
+}
+
+.controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-control {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-control:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-icon {
+  font-size: 1rem;
+  min-width: 20px;
+}
+
+.volume-slider {
+  width: 80px;
+  height: 4px;
+  cursor: pointer;
+  accent-color: #ff6b6b;
+}
+
+.time-display {
+  font-size: 0.9rem;
+  min-width: 100px;
+  text-align: right;
+}
+
+.info {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.info p {
+  margin: 8px 0;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .video-player-container {
+    padding: 20px 10px;
+  }
+
+  .time-display {
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+
+  .volume-slider {
+    width: 50px;
+  }
+}

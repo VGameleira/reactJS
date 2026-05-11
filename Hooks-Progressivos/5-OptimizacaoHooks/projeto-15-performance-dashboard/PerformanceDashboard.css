@@ -1,0 +1,347 @@
+.performance-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.info-box {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #ffeb3b;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.info-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.controles {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-adicionar {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.btn-adicionar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.controles p {
+  color: #666;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ========== MÉTRICAS ========== */
+.metricas-grid {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.metrica-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-top: 4px solid;
+  transition: all 0.3s ease;
+}
+
+.metrica-card:hover {
+  transform: translateY(-5px);
+}
+
+.metrica-card.azul {
+  border-top-color: #667eea;
+}
+
+.metrica-card.verde {
+  border-top-color: #4caf50;
+}
+
+.metrica-card.roxo {
+  border-top-color: #9c27b0;
+}
+
+.metrica-card.laranja {
+  border-top-color: #ff9800;
+}
+
+.metrica-card.rosa {
+  border-top-color: #e91e63;
+}
+
+.metrica-card.ciano {
+  border-top-color: #00bcd4;
+}
+
+.metrica-card h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.valor-grande {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.metrica-card .unidade {
+  color: #999;
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.render-count {
+  background: #f0f0f0;
+  color: #666;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ========== GRÁFICOS ========== */
+.graficos-container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.grafico-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.grafico-card h3 {
+  color: #333;
+  margin-top: 0;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.grafico {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  gap: 15px;
+}
+
+.barra-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.barra {
+  width: 100%;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px 4px 0 0;
+  min-height: 5px;
+  transition: all 0.3s ease;
+}
+
+.barra-container:hover .barra {
+  filter: brightness(1.2);
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ========== TABELA ========== */
+.tabela-container {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+.tabela-container h2 {
+  color: #333;
+  margin-top: 0;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 15px;
+}
+
+.usuarios-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.usuarios-table thead {
+  background: #f5f5f5;
+}
+
+.usuarios-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.usuarios-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #666;
+}
+
+.usuarios-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.ativo {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.inativo {
+  color: #f44336;
+  font-weight: 600;
+}
+
+/* ========== OTIMIZAÇÃO INFO ========== */
+.otimizacao-info {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.otimizacao-info h2 {
+  color: #333;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.estrategias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.estrategia {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.estrategia h3 {
+  color: #667eea;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.estrategia p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .metricas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .graficos-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .performance-dashboard {
+    padding: 20px 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .metricas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controles,
+  .tabela-container,
+  .otimizacao-info {
+    padding: 15px;
+  }
+
+  .usuarios-table th,
+  .usuarios-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .estrategias {
+    grid-template-columns: 1fr;
+  }
+}

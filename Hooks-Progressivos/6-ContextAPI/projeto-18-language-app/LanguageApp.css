@@ -1,0 +1,263 @@
+.language-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== HEADER ========== */
+.header-idioma {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 30px 20px;
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-idioma h1 {
+  margin: 0 0 20px 0;
+  font-size: 2.2rem;
+}
+
+.selector-idioma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.selector-idioma label {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.botoes-idioma {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-idioma {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-idioma:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-idioma.ativo {
+  background: white;
+  color: #667eea;
+  border-color: white;
+}
+
+/* ========== MAIN ========== */
+.main-idioma {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 50px 20px;
+}
+
+.home {
+  animation: fadeIn 0.5s ease;
+}
+
+.home h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.bem-vindo {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ========== CAIXAS DE INFO ========== */
+.info-box,
+.contato-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.info-box h2,
+.contato-box h2 {
+  color: #667eea;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.info-box p,
+.contato-box p {
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ========== FEATURES ========== */
+.features {
+  margin-bottom: 40px;
+}
+
+.features h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature span {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ========== EXEMPLOS DE CÓDIGO ========== */
+.exemplos-codigo {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 30px 20px;
+  color: white;
+}
+
+.exemplos-codigo h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.codigo {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.codigo code {
+  color: #d4d4d4;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .header-idioma {
+    padding: 20px 15px;
+  }
+
+  .header-idioma h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .selector-idioma {
+    gap: 8px;
+  }
+
+  .selector-idioma label {
+    font-size: 0.95rem;
+  }
+
+  .botoes-idioma {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-idioma {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .main-idioma {
+    padding: 25px 15px;
+  }
+
+  .home h1 {
+    font-size: 1.8rem;
+  }
+
+  .bem-vindo {
+    font-size: 1rem;
+  }
+
+  .info-box,
+  .contato-box {
+    padding: 20px;
+  }
+
+  .features h2 {
+    font-size: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .codigo {
+    padding: 15px;
+  }
+
+  .codigo code {
+    font-size: 0.8rem;
+  }
+}
